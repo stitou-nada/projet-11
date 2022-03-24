@@ -19,7 +19,9 @@ $listProduits = $gestionProduit->getPanier();
                 <th>Nom</th>
                 <th>Prix</th>
                 <th>Quantité</th>
-                
+                <th>Action</th>
+                <th>Action</th>
+      
              </tr>
             
       
