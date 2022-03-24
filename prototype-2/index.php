@@ -1,8 +1,8 @@
 <?php  
 include 'gestionProduit.php';
 
-$gestion = new GestionProduit();
-$data = $gestion->afficherProduit();
+$gestionProduit = new GestionProduit();
+$data = $gestionProduit->afficherProduit();
 
 foreach($data as $value){
 ?>

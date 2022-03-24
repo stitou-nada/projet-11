@@ -26,41 +26,23 @@ class GestionProduit {
     
     
     // pour ajouter session
-    public function set($key,$value){
-        $_SESSION["paniers"]["produits"][$key] = $value ;
+    public function set($id,$value){
+        $_SESSION["paniers"]["produits"][$id] = $value ;
 
     }
 
-      // afficher session
+      // afficher session dans tableau
 
       public function getPanier(){
         if(isset($_SESSION["paniers"]["produits"])){
             return $_SESSION["paniers"]["produits"];
-            return array();
+            
         }
     }
 
-// afficher  les produits : page index
-    public function afficher(){
-        $SelctRow = 'SELECT *  FROM produits';
-        $query = mysqli_query($this->getConnection() ,$SelctRow);
-        $produits_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
-        $TableData = array();
-        foreach ($produits_data as $value_Data) {
-            $produit = new Produit();
-            $produit->setId($value_Data['id']);
-            $produit->setNom($value_Data['Nom']);
-           
-            array_push($TableData, $produit);
-        }
-          return $TableData;
- 
-        }
-  
  
         
-// afficher  les produits : page panier
+// afficher  les produits 
 
         public function afficherProduit(){
             $SelctRow = "SELECT * FROM produits ";
