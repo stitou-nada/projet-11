@@ -1,19 +1,30 @@
 
-<?php 
+
+
+
+<?php  
+
 include 'gestionProduit.php';
-$gestionProduit = new GestionProduit();
-$data= $gestionProduit->afficher();
+
+$gestion = new GestionProduit();
+$data = $gestion->afficherProduit();
 
 foreach($data as $value){
-  
 ?>
-<a href="detail de produit.php?id=<?= $value->getId();?>">
-<?php 
-   echo "<br>".$value->getNom();
- 
- ?>
- </a>
+   <h1><?= $value->getNom();?></h1>
+   <p> Prix:<?= $value->getPrix();?></p>
+   <?php 
+}
+?>
 
-<?php } ?>
-<br>
-<a href="panier.php">panier</a>
+<form action="ajouter.php" method="POST">
+<p>
+<label for=""> Quantité</label>
+<input type="number" name="qnt" >
+</p>
+<p>
+<input type="hidden" name="id" value="<?=  $value->getId() ?>">
+<button type="submit">ajouter au panier</button>
+</p>
+</form>
+

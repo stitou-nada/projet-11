@@ -62,8 +62,8 @@ class GestionProduit {
         
 // afficher  les produits : page panier
 
-        public function afficherProduit($id){
-            $SelctRow = "SELECT * FROM produits WHERE id =$id";
+        public function afficherProduit(){
+            $SelctRow = "SELECT * FROM produits ";
             $query = mysqli_query($this->getConnection() ,$SelctRow);
             $produits_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
     
