@@ -21,7 +21,7 @@ foreach($data as $value){
 
 <form action="ajouter.php" method="POST">
 <p>
-<label for=""> Quntite</label>
+<label for=""> Quantité</label>
 <input type="number" name="qnt" >
 </p>
 <p>

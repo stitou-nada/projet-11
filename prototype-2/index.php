@@ -5,29 +5,15 @@ $gestionProduit = new GestionProduit();
 $data= $gestionProduit->afficher();
 
 foreach($data as $value){
-
-
-   
-
+  
 ?>
-
-<div>
-<table border="1" width="20%">
-<tr>
-
-<td>
-    <a href="detail de produit.php?id=<?= $value->getId();?>">
-<?= $value->getNom();?></a> </td>
-</tr>
-
-
-
-
-</table>
-
-</div>
-
+<a href="detail de produit.php?id=<?= $value->getId();?>">
+<?php 
+   echo "<br>".$value->getNom();
+ 
+ ?>
+ </a>
 
 <?php } ?>
-
+<br>
 <a href="panier.php">panier</a>
