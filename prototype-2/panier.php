@@ -12,14 +12,16 @@ $listProduits = $gestionProduit->getPanier();
 
 ?>
 
-        <table border="2" width="50%" >
-             <tr>
+        <table  width="20%" >
+      
+             <tr >
                 <th>id</th>
                 <th>Nom</th>
                 <th>Prix</th>
                 <th>Quantité</th>
                 
              </tr>
+            
       
         <?php
           foreach($listProduits as $value){
@@ -27,15 +29,16 @@ $listProduits = $gestionProduit->getPanier();
 
             ?>
           
-            <tr >
-                
+            <tr>
+              
                 <td><?= $value["id"] ?></td>
                 <td><?= $value["nom"] ?></td>
                 <td><?= $value["prix"] ?> dh</td>
-                <td><?= $value["qnt"] ?></td>
+                <td><?= $value["quantite"]?></td>
             
               
-            </tr> 
+            </tr>
+
             
              
         <?php } ?>

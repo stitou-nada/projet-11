@@ -1,9 +1,4 @@
-
-
-
-
 <?php  
-
 include 'gestionProduit.php';
 
 $gestion = new GestionProduit();
@@ -20,7 +15,7 @@ foreach($data as $value){
 <form action="ajouter.php" method="POST">
 <p>
 <label for=""> Quantité</label>
-<input type="number" name="qnt" >
+<input type="number" name="quantite" >
 </p>
 <p>
 <input type="hidden" name="id" value="<?=  $value->getId() ?>">
