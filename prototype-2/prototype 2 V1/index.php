@@ -30,7 +30,7 @@
                     <form action="ajouter.php"method="POST" class="d-flex">
                         <button   class="btn btn-outline-dark" type="submit">
                          <i class="bi-cart-fill me-1" ></i>
-                            Cart
+                           Panier
                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                         </button>
                     </form>
@@ -52,13 +52,17 @@ include 'gestionProduit.php';
 $gestionProduit = new GestionProduit();
 $data= $gestionProduit->afficher();
 
-foreach($data as $value){
-
 ?>
+
         <section class="py-5">
+       
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    <div class="col mb-5">
+                <?php
+        foreach($data as $value){
+
+          ?>
+                <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
                             <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
@@ -70,79 +74,17 @@ foreach($data as $value){
                                     <!-- Product price-->
                                     <?= $value->getPrix();?> DH
                                 </div>
-                            </div>
-                            <?php } ?>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center"><a href="detail de produit.php?id=<?= $value->getId();?>"class="btn btn-outline-dark mt-auto" href="#">Détail</a></div>
                             </div>
+                            <!-- Product actions-->
+                               
+                            </div>
                         </div>
+                        <?php } ?>
                     </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
+                   </section>
                       
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder"><?= $value->getNom();?></h5>
-                                    
-                                  
-                                    <!-- Product price-->
-                                    <?= $value->getPrix();?> DH
-                                    
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a href="detail de produit.php?id=<?= $value->getId();?>" class="btn btn-outline-dark mt-auto" href="#">Détail</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                        
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder"><?= $value->getNom();?></h5>
-                                    <!-- Product price-->
-                                    <?= $value->getPrix();?> DH
-                                    
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a  href="detail de produit.php?id=<?= $value->getId();?>" class="btn btn-outline-dark mt-auto" href="#">Détail</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder"><?= $value->getNom();?></h5>
-                                  
-                                    <!-- Product price-->
-                                    <?= $value->getPrix();?> DH
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a href="detail de produit.php?id=<?= $value->getId();?>" class="btn btn-outline-dark mt-auto" href="#">Détail</a></div>
-                            </div>
-                        </div>
-                    </div>
-
+                           
     
     </body>
 </html>
