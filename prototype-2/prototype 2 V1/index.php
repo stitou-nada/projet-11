@@ -9,13 +9,6 @@ foreach($data as $value){
 
 ?>
 
-
-
-
-
-
-
-
 <div class="card " style="width: 18rem;">
   <img src="../img/cta-2-368x420.jpg" class="card-img-top" alt="...">
   <div class="card-body">

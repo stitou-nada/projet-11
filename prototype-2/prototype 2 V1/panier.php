@@ -8,11 +8,9 @@ include 'gestionProduit.php';
 $gestionProduit = new GestionProduit();
 
 $listProduits = $gestionProduit->getPanier();
-
-
 ?>
 
-        <table border="2" width="50%" >
+        <table border="1" width="50%" >
              <tr>
                 <th>id</th>
                 <th>Nom</th>
@@ -32,7 +30,7 @@ $listProduits = $gestionProduit->getPanier();
                 <td><?= $value["id"] ?></td>
                 <td><?= $value["nom"] ?></td>
                 <td><?= $value["prix"] ?> dh</td>
-                <td><?= $value["qnt"] ?></td>
+                <td><?= $value["quantite"] ?></td>
             
               
             </tr> 

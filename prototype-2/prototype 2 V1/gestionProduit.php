@@ -1,9 +1,5 @@
 <?php
 include "produit.php";
-
-
-
-
 class GestionProduit {
 
     public $name ;
@@ -12,25 +8,15 @@ class GestionProduit {
 
     private function getConnection(){
       
-            $this->Connection = mysqli_connect('localhost', 'hicham', 'mlikihii', 'site-e-commerce');
-           
-         
-       
-        
+         $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'site-e-commerce');
+              
         return $this->Connection;
     }
-
-
-  
-    
-    
-    
     // pour ajouter session
     public function set($key,$value){
         $_SESSION["paniers"]["produits"][$key] = $value ;
 
     }
-
       // afficher session
 
       public function getPanier(){
@@ -58,9 +44,7 @@ class GestionProduit {
           return $TableData;
  
         }
-  
- 
-        
+       
 // afficher  les produits : page panier
 
         public function afficherProduit($id){
