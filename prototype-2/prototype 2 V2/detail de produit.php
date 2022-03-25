@@ -1,8 +1,15 @@
 <?php  
+
+
 include 'gestionProduit.php';
 
-$gestionProduit = new GestionProduit();
-$data = $gestionProduit->afficherProduit();
+
+if(isset($_GET["id"])){
+$id=$_GET["id"];
+
+}
+$gestion = new GestionProduit();
+$data = $gestion->afficherProduit($id);
 
 foreach($data as $value){
 ?>
@@ -14,12 +21,11 @@ foreach($data as $value){
 
 <form action="ajouter.php" method="POST">
 <p>
-<label for=""> Quantité</label>
-<input type="number" name="quantite" >
+<label for=""> Quntite</label>
+<input type="number" name="qnt" >
 </p>
 <p>
 <input type="hidden" name="id" value="<?=  $value->getId() ?>">
 <button type="submit">ajouter au panier</button>
 </p>
 </form>
-
