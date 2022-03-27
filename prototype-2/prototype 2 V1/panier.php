@@ -44,45 +44,49 @@
             <div class="title">
                 <div class="row">
                     <div class="col">
-                        <h4><b>Shopping Cart</b></h4>
-                    </div>
-                    <div class="col align-self-center text-right text-muted">3 items</div>
-                </div>
+                        <h4><b>Panier</b></h4>
+                      
             </div>
-            <div class="row border-top border-bottom">
+                            <?php 
+                           session_start();
+
+                           // print_r($_SESSION["paniers"]);
+
+                            include 'gestionProduit.php';
+
+                             $gestionProduit = new GestionProduit();
+
+                            $listProduits = $gestionProduit->getPanier();
+
+
+                       ?>
+             <div class="row border-top border-bottom">
+
                 <div class="row main align-items-center">
-                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div>
+                    
+                <?php
+                  foreach($listProduits as $value){
+          
+
+                ?>
+            
+                    <div class="col-2"><img class="img-fluid" src="../img/gallery-image-4-270x195.jpg"></div>
                     <div class="col">
-                        <div class="row text-muted">Shirt</div>
-                        <div class="row">Cotton T-shirt</div>
+                        <div class="row text-muted"><?= $value["nom"] ?></div>
+                        
+                        <div class="row">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
                     </div>
-                    <div class="col"> <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> </div>
-                    <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                    
+                    <div class="col"> <a href="#">-</a><a href="#" class="border"><?= $value["quantite"] ?></a><a href="#">+</a> </div>
+                    <div class="col"><?= $value["prix"] ?> DH  <span class="close" > &#10005;</span></div>
                 </div>
+                <?php } ?>
             </div>
-            <div class="row">
-                <div class="row main align-items-center">
-                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
-                    <div class="col">
-                        <div class="row text-muted">Shirt</div>
-                        <div class="row">Cotton T-shirt</div>
-                    </div>
-                    <div class="col"> <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> </div>
-                    <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
-                </div>
-            </div>
-            <div class="row border-top border-bottom">
-                <div class="row main align-items-center">
-                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg"></div>
-                    <div class="col">
-                        <div class="row text-muted">Shirt</div>
-                        <div class="row">Cotton T-shirt</div>
-                    </div>
-                    <div class="col"> <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> </div>
-                    <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
-                </div>
-            </div>
-            <div class="back-to-shop"><a href="index.php">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+            
+
         </div>
-        
-    </div
+     </div>
+</div>
+<div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Retourner</span></div>
+       
+ 
