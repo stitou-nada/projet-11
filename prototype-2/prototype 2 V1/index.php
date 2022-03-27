@@ -27,10 +27,11 @@
                         <li class="nav-item"><a class="nav-link" href="#!">Magasin</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>  
                     </ul>
-                    <form action="ajouter.php"method="POST" class="d-flex">
+                    <form action="panier.php"method="POST" class="d-flex">
                         <button   class="btn btn-outline-dark" type="submit">
                          <i class="bi-cart-fill me-1" ></i>
                            Panier
+                           
                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                         </button>
                     </form>
