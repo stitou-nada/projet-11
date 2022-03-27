@@ -77,16 +77,19 @@
                         <div class="row">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
                     </div>
                     
-                    <div class="col"> <a href="#">-</a><a href="#" class="border"><?= $value["quantite"] ?></a><a href="#">+</a> </div>
-                    <div class="col"><?= $value["prix"] ?> DH  <span class="close" > &#10005;</span></div>
+                    <div class="col"> <a href="#">-</a><a href="detail de produit.php?id=<?= $value["id"] ?>" class="border"><?= $value["quantite"] ?></a><a href="#">+</a> </div>
+                    <div class="col"><?= $value["prix"] ?> DH  <a class="close" href="supprimer.php?id=<?= $value["id"] ?>"> &#10005;</a></div>
+                    
                 </div>
                 <?php } ?>
             </div>
             
-
+         
         </div>
+        
      </div>
+     
 </div>
-<div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Retourner</span></div>
+<div class="back-to-shop"><a href="index.php">&leftarrow;</a><span class="text-muted">Retourner</span></div>
        
  

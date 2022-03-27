@@ -17,12 +17,26 @@ class GestionProduit {
         $_SESSION["paniers"]["produits"][$key] = $value ;
 
     }
+    //supprimer session
+    public function delete($id){
+        if(isset($_SESSION["paniers"]["produits"][$id])){
+            unset($_SESSION["paniers"]["produits"][$id]);
+        }
+    }
+    
       // afficher session
 
       public function getPanier(){
         if(isset($_SESSION["paniers"]["produits"])){
             return $_SESSION["paniers"]["produits"];
             return array();
+        }
+    }
+     // pour afficher  session 
+     public function getProduit($id){
+        if(isset($_SESSION["paniers"]["produits"][$id])){
+            return $_SESSION["paniers"]["produits"][$id];
+            return null ; 
         }
     }
 
@@ -63,11 +77,8 @@ class GestionProduit {
             }
               return $TableData;
         }
-      
- 
-
     
-
-
-
     }
+    
+          
+    
