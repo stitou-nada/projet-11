@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+$compteur = count($_SESSION["paniers"]["produits"]) ;
+?>
 <!-- CSS only -->
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +36,9 @@
                         <button   class="btn btn-outline-dark" type="submit">
                          <i class="bi-cart-fill me-1" ></i>
                            Panier
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">
+                                 <?php echo $compteur ?>
+                        </span>
                         </button>
                     </form>
                 </div>
@@ -48,7 +55,7 @@
                       
             </div>
                             <?php 
-                           session_start();
+                        
 
                            // print_r($_SESSION["paniers"]);
 
@@ -57,34 +64,32 @@
                              $gestionProduit = new GestionProduit();
 
                             $listProduits = $gestionProduit->getPanier();
-
-
                        ?>
-             <div class="row border-top border-bottom">
 
-                <div class="row main align-items-center">
-                    
-                <?php
+            <?php
                   foreach($listProduits as $value){
           
 
                 ?>
+             <div class="row border-top border-bottom">
             
+                <div class="row main align-items-center">
+                    
+              
                     <div class="col-2"><img class="img-fluid" src="../img/gallery-image-4-270x195.jpg"></div>
                     <div class="col">
                         <div class="row text-muted"><?= $value["nom"] ?></div>
                         
                         <div class="row">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
                     </div>
-                    
-                    <div class="col"> <a href="#">-</a><a href="detail de produit.php?id=<?= $value["id"] ?>" class="border"><?= $value["quantite"] ?></a><a href="#">+</a> </div>
+                    <div class="col"> <a href="modifier.php?id=<?= $value["id"] ?>" class="border"><?= $value["quantite"] ?></a> </div>
                     <div class="col"><?= $value["prix"] ?> DH  <a class="close" href="supprimer.php?id=<?= $value["id"] ?>"> &#10005;</a></div>
                     
                 </div>
-                <?php } ?>
+                  
             </div>
             
-         
+            <?php } ?>
         </div>
         
      </div>

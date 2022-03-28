@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+$compteur = count($_SESSION["paniers"]["produits"]) ;
+?>
+
 <!-- CSS only -->
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +38,11 @@
                          <i class="bi-cart-fill me-1" ></i>
                            Panier
                            
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">
+                        <?php 
+                        echo $compteur
+                        ?>
+                        </span>
                         </button>
                     </form>
                 </div>

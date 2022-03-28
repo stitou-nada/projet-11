@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+$compteur = count($_SESSION["paniers"]["produits"]) ;
+?>
 <!-- CSS only -->
 <!DOCTYPE html>
 <html lang="en">
@@ -27,11 +32,12 @@
                         <li class="nav-item"><a class="nav-link" href="#!">Magasin</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>  
                     </ul>
-                    <form action="ajouter.php"method="POST" class="d-flex">
+                    <form action="panier.php"method="POST" class="d-flex">
                         <button   class="btn btn-outline-dark" type="submit">
                          <i class="bi-cart-fill me-1" ></i>
                            Panier
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">
+                            <?php echo $compteur ?></span>
                         </button>
                     </form>
                 </div>
@@ -89,30 +95,3 @@ foreach($data as $value){
 
 
 
-<?php  
-include 'gestionProduit.php';
-
-if(isset($_GET["id"])){
-$id=$_GET["id"];
-
-}
-$gestion = new GestionProduit();
-$data = $gestion->afficherProduit($id);
-foreach($data as $value){
-?>
-   <h1><?= $value->getNom();?></h1>
-   <p> Prix:<?= $value->getPrix();?></p>
-   <?php 
-}
-?>
-
-<form action="ajouter.php" method="POST">
-<p>
-<label for=""> Quantite</label>
-<input type="number" name="quantite" value="1" >
-</p>
-<p>
-<input type="hidden" name="id" value="<?=  $value->getId() ?>">
-<button type="submit">ajouter au panier</button>
-</p>
-</form>
